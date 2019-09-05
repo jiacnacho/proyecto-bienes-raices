@@ -1,0 +1,514 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;    /** Reset para REMS - 62.5% = 10 px de 16px **/
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+/** Globales **/
+img{
+    max-width: 100%;  /* Hace que todas las imaganes sean responsivas y las mantiene al 100 % de lo que visiblemente se permite dentro de su contenedor */
+}
+
+.contenedor {
+    width: 95%;   
+    max-width: 120REM;  /*aplica toda la altura disponible hasta 1200 px*/
+    margin: 0 auto;     /*Funcion para centrar el contenido, para que mantenga la misma distancia a los costados */       
+}
+h1 {
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 3.4rem;
+}
+h3 {
+    font-size: 3rem;
+}
+h4 {
+    font-size: 2.6rem;
+}
+/**  Utilidades **/
+.seccion   {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.fw-300{
+    font-weight: 300;
+    
+}
+.centrar-texto{
+    text-align: center;
+}
+
+.d-block{
+    display: block!important;
+}
+
+.contenido-centrado{
+    max-width: 500px;
+}
+
+/** Botones **/
+.boton {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.8rem;
+    margin-top: 3rem;
+    padding: 1rem 3rem;    
+    display: inline-block;   /** Para los casos de clases asociadas a hypervinculos href, hay que cambiar su display para poder realizar modificaciones de margin,padding,etc**/
+    text-align: center;
+    border: 0;
+    display: block;
+    flex: 0 0 100%;
+}
+
+@media(min-width: 768px) {
+    .boton{
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+
+}
+
+.boton:hover{
+    cursor: pointer;
+}
+
+.boton-amarillo {
+    background-color: #E08709;
+}
+
+.boton-verde {
+    background-color: #71B100;
+}
+
+/* Header */
+
+.site-header { 
+    background-color: #333333;
+    padding: 1rem 0 3rem 0;
+ }
+
+ .site-header.inicio{
+    background-image: url(../img/header.jpg);   /*Funcion para poner una imagen de fondo sobre una clase */
+    background-position: center center;     /* Funcion para posicionar la imagen para mostrarla desde el centro */
+    background-size: cover;     /*Funcion para que el fondo se fuerza a tomar todo el espacio disponible de alto y ancho pero siempre forzando las proporciones */
+    height: 100vh;   /*Funcion para que la imagen ocupe el maximo de la pantalla posible , autoajustable */
+    min-height: 60rem;      /*Funcion para demarcar un minimo de pixeles a mostrar */
+}
+.contenido-header {
+    height: 90%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+@media(min-width: 768px) {
+    .contenido-header {
+        text-align: left;
+    }
+}
+
+
+.contenido-header h1 {
+    color: #ffffff;
+    padding-bottom: 2rem;
+    max-width: 60rem;
+    line-height: 2;
+}
+
+.barra  {
+   padding-top: 3rem;    /*es espacio hacia adentro del elemento, sin mover todo el elemento completo del cual pertenece*/
+}
+
+@media(min-width: 768px) {
+    .barra  {
+        display:flex;    /*ordena el contenido de forma horizontal */
+        justify-content:   space-between;
+        align-items: center;     /* Comando utilizado para alinear el contenido separado de la derecha centrado, tiene otros valores para utilizar */
+     }
+     .navegacion a:last-of-type{     /*Sirve para seleccionar el ultimo de la cadena y operar unicamente sobre el*/
+        margin:0;
+    }
+}
+
+/** navegacion **/
+
+.navegacion a {
+    color: white;
+    text-decoration: none;  /* sirve para eliminar los agregados de linea baja */
+    font-size: 2.4rem;       /* == a 18px*/ 
+     
+    display: block;
+}
+
+@media(min-width: 768px) {
+    .navegacion a{
+        display: inline-block;
+        margin-right: 2rem; 
+        font-size: 1.8rem;       /* == a 18px*/
+    }
+}
+
+.navegacion a:hover {   /* HOVER Sirve para realizar una accion al momento de pasar el puntero por encima, es un seudo selector */
+    color: #71B100;   
+}
+
+/** Mobile Menu **/
+
+.mobile-menu img {
+    width: 5rem;
+}
+
+@media(min-width: 768px) {
+    .mobile-menu{
+        display: none;
+    }  
+}
+
+.navegacion {
+    display: none;
+}
+
+.navegacion:target {
+    display: block;
+}
+
+@media(min-width: 768px) {
+    .navegacion{
+        display: block;
+    }
+}
+
+/** Iconos Nosotros **/
+
+@media(min-width: 768px) {
+    .iconos-nosotros {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.icono {
+    text-align: center;
+}
+
+@media(min-width: 768px) {
+    .icono {
+        flex-basis: calc(33.3% - 1rem);           /** Toma el 100 % y lo divide x 3 (cantidad de items del contenedor) y a cada uno le va a dar 33.3% */
+    }   
+}
+
+.icono h3 {
+    text-transform: uppercase;
+}
+
+/** Anuncios**/
+
+.contenedor-anuncios{
+    text-align: center;
+}
+
+@media(min-width: 768px) {
+    .contenedor-anuncios{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap; /* Es una propiedad que envia hacia abajo las imagenes restantes para que quepan en el maximo de su tamaño */
+    } 
+}
+
+.anuncio{
+    flex-shrink:0; /*sirve para que no se achiquen las imagenes y se vean al maximo posible de su tamaño*/
+    flex-basis: calc(33.3% - 1rem);
+    border: 1px solid #B5B5B5;
+    background: #f5f5f5;
+    margin-bottom: 2rem;
+}
+
+.contenido-anuncio {
+    padding: 2rem;
+}
+
+.contenido-anuncio h3, .contenido-anuncio p {
+    margin: 0;
+}
+
+.precio{
+    color: #71B100;
+    font-weight: 700;
+}
+
+.iconos-caracteristicas{
+    list-style-type: none;
+    padding: 0;   
+    display: flex;    
+    justify-content: space-evenly;
+    max-width: 500px;
+}
+
+.iconos-caracteristicas li{
+    /*flex: 1;*/
+    display: flex;
+}
+
+.iconos-caracteristicas img {
+    margin-right: 2rem;
+}
+
+.ver-todas{
+    display:flex;
+    justify-content: flex-end;
+}
+
+/** Contacto Home */
+
+.imagen-contacto {
+    background-image: url(../img/encuentra.jpg);
+    background-position: center center;     /* Funcion para posicionar la imagen para mostrarla desde el centro */
+    background-size: cover;     /*Funcion para que el fondo se fuerza a tomar todo el espacio disponible de alto y ancho pero siempre forzando las proporciones */
+    height: 40rem;   /*Funcion para que la imagen ocupe el maximo de la pantalla posible , autoajustable */
+    min-height: 40rem;      /*Funcion para demarcar un minimo de pixeles a mostrar */
+    display: flex;
+    align-items: center;
+}
+.contenido-contacto {
+    text-align: center;
+    flex: 1;     /* Es un factor de crecimiento. Detecta cuanto tamaño hay disponible y lo divide entre los elementos detectados. de 1000 pixels en este caso se los asigna a 1 */
+    color: #ffffff;
+}
+
+@media(min-width: 768px) {
+    .contenido-contacto {
+        text-align: left;
+        flex: 1;     /* Es un factor de crecimiento. Detecta cuanto tamaño hay disponible y lo divide entre los elementos detectados. de 1000 pixels en este caso se los asigna a 1 */
+        color: #ffffff;        
+    } 
+}
+
+.contenido-contacto p {
+    font-size: 1.8rem;
+}
+
+/** Seccion inferior **/
+
+@media(min-width: 768px) {
+    .seccion-inferior{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .seccion-inferior.blog {
+        flex-basis: 60%;
+    }
+    
+    .seccion-inferior .testimoniales{
+        flex-basis: calc(50%);
+    }    
+}
+
+.entrada-blog {
+   margin-bottom: 2rem;
+   text-align: center;   
+}
+
+@media(min-width: 768px) {
+    .entrada-blog {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    } 
+}
+.entrada-blog:last-of-type {
+    margin-bottom: 0;
+}
+
+.entrada-blog .imagen {
+    flex-basis: 40%;
+}
+
+.entrada-blog .texto-entrada {
+    flex-basis: calc(60% - 3rem)
+}
+
+.texto-entrada A {
+    text-decoration: none;
+    color: #000000;
+}
+
+.texto-entrada h4 {
+    margin: 0;
+    line-height: 1;
+}
+
+.texto-entrada h4 {
+    margin: 0;
+    line-height: 1;
+}
+
+.texto-entrada h4::after {       /** ::AFTER es un pseudoelemento para incluir elementos que no existan, no son seleccionables. simplemente estan. Se genera posterior a lo existente. **/
+    content: '';                /**sirve para generar un elemento sin texto*/
+    display: block;             /**Sirve para dar formar a un contenido/elemento, csumando widht y height**/
+    width: 15rem;               /**Ancho**/
+    height: .5rem;              /**ALTO**/
+    background-color: #71B100;
+    margin-top: 1rem;
+}
+
+.texto-entrada span {
+    color: #E08709;
+}
+
+/*** Testimoniales ***/
+
+.testimonial {
+    background-color: #71B100;
+    font-size: 1.8rem;
+    padding: 2rem;
+    color: #ffffff;
+    border-radius: 2rem;   /** Sirve para redondear bordes de un elemento **/
+}
+
+.testimonial p {
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.testimonial blockquote::before {  /** al ser un seudo elemento hay que definir cuanto va a medir , mostrarlo, etc*/
+    content: '';
+    background-image: url(../img/comilla.svg);
+    width: 4rem;
+    height: 4rem;
+    position: absolute; /** Es necesario para informar la posicion sobre la cual se va a mover el elemento luego con position relative. Marca punto de referencia **/
+    left: -2rem;
+}
+
+.testimonial blockquote {
+    position: relative;
+    padding-left: 4rem;
+    font-weight: 300;
+}
+
+/** FOOTER **/
+
+.site-footer {
+    background-color: #333333;
+    margin: 0;
+}
+
+.contenedor-footer{
+    padding: 3rem 0;
+    text-align: center;
+   
+}
+
+@media(min-width: 768px) {
+    .contenedor-footer{
+        padding: 3rem 0;
+        display: flex;
+        justify-content: space-between;
+    }  
+}
+
+.contenedor-footer p{
+    color: white;
+}
+
+/** PAGINAS INTERNAS **/
+
+/*Nosotros*/
+
+.contenido-nosotros {
+    text-align: center;
+}
+
+@media(min-width: 768px) {
+    .contenido-nosotros {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-column-gap: 2rem; 
+    }
+}
+
+.texto-nosotros blockquote{
+    font-weight: 900;
+    font-size: 2rem;
+    margin: 0;
+    padding : 1rem 0 0rem 3rem;
+}
+
+/**Anuncio **/
+
+.resumen-propiedad{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+}
+
+/** Contacto **/
+
+form p {
+    font-size: 1.5rem;
+    color: #4f4f4f;
+}
+
+legend{
+    font-size: 2.4rem;
+}
+
+label{
+    display: block; /* Display block sirve para tomar todo el espacio disponible */    
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #333333;
+}
+
+
+
+input:not([type="submit"]),   /** :not es para evitar selecionar la condicion que contiene el elemento */
+textarea,
+select
+{
+    padding: 1rem;     
+    background-color: gainsboro;
+    width: 100%;
+    border: none;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+}
+
+input[type="radio"]{
+    width: auto;
+    margin: 0;  
+}
+
+select{
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+textarea{
+    height: 20rem;
+}
+
+.forma-contacto{
+    max-width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
+
+
